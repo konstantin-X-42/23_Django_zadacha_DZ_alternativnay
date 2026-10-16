@@ -1,4 +1,4 @@
-
+import os
 from pathlib import Path
 
 from django.conf.global_settings import STATICFILES_DIRS
@@ -18,7 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'newapp'
+    'dogs',
 ]
 
 MIDDLEWARE = [
@@ -50,12 +50,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "23_Django_zadacha_DZ_alternativnay",
+        'USER': 'kosty',
+        'PASSWORD': '16011984',
+        'HOST': '127.0.0.1',
+        'PORT': 5433,
     }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -89,3 +95,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
